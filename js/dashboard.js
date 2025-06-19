@@ -15,9 +15,9 @@ async function loadProducts() {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-      <img src="${p.image_url}" alt="${p.name}" />
+      <img src="${p.image_url}" alt="${p.product_name}" />
       <div class="info">
-        <h4>${p.name}</h4>
+        <h4>${p.product_name}</h4>
         <p>Rs. ${p.price}</p>
       </div>
     `;
@@ -27,7 +27,7 @@ async function loadProducts() {
 
 document.getElementById('add-product').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
+    const name = document.getElementById('product_name').value;
     const price = document.getElementById('price').value;
     const image_url = document.getElementById('image_url').value;
 

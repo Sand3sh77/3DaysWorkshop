@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script defer src="js/dashboard.js"></script>
+    <script type="module" defer src="js/dashboard.js"></script>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <h2 id="welcome">👋 Welcome</h2>
 
         <form id="add-product" class="horizontal-form">
-            <input type="text" id="name" placeholder="Product name" required />
+            <input type="text" id="product_name" placeholder="Product name" required />
             <input type="number" id="price" placeholder="Price" required />
             <input type="url" id="image_url" placeholder="Image URL" required />
             <button type="submit">Add</button>
