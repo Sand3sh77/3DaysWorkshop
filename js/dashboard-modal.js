@@ -19,7 +19,7 @@ addBtn.addEventListener('click', () => {
 });
 
 // Close modal
-function closeModal() {
+export function closeModal() {
     modal.classList.remove('show');
     document.getElementById('add-product').reset();
 }

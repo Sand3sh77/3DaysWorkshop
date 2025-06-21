@@ -1,9 +1,10 @@
 import { paymentRoute, productRoute } from "./backend.js";
+import { closeModal } from "./dashboard-modal.js";
+
+const user = JSON.parse(localStorage.getItem('user'));
 
 async function handleBuyProduct(e, price, productId) {
     e.preventDefault();
-
-    const user = JSON.parse(localStorage.getItem('user'));
 
     try {
         const response = await fetch(paymentRoute, {
