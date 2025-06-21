@@ -7,25 +7,44 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
     <script type="module" defer src="js/dashboard.js"></script>
+    <script type="module" defer src="js/dashboard-modal.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h2 id="welcome">👋 Welcome</h2>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>Product Manager</h1>
+        <div class="nav-right">
+            <span id="username-display">Hello, User</span>
+            <button id="add-product-btn">+ Add Product</button>
+            <a href="./signup.html">Switch User</a>
+        </div>
+    </nav>
 
-        <form id="add-product" class="horizontal-form">
-            <input type="text" id="product_name" placeholder="Product name" required />
-            <input type="number" id="price" placeholder="Price" required />
-            <input type="url" id="image_url" placeholder="Image URL" required />
-            <button type="submit">Add</button>
-        </form>
-
-        <h3 style="margin-top: 2rem;">📦 Product List</h3>
+    <!-- Main Content -->
+    <div class="main">
+        <h2>Products</h2>
         <div id="product-list" class="product-grid"></div>
+    </div>
 
-        <a href="./signup.html">🔙 Switch User</a>
+    <!-- Add Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Product</h3>
+                <button id="close-modal">&times;</button>
+            </div>
+            <form id="add-product">
+                <input type="text" id="product_name" placeholder="Product name" required />
+                <input type="number" id="price" placeholder="Price" required />
+                <input type="url" id="image_url" placeholder="Image URL" required />
+                <div class="form-actions">
+                    <button type="button" id="cancel-btn">Cancel</button>
+                    <button type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
-
 
 </html>

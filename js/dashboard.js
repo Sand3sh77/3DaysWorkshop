@@ -1,49 +1,59 @@
 import { productRoute } from "./backend.js";
 
-const user = JSON.parse(localStorage.getItem('user'));
-if (!user) window.location.href = '/signup.html';
-document.getElementById('welcome').innerText = `👋 Welcome, ${user.username}`;
-
+// Load and display products
 async function loadProducts() {
-    const res = await fetch(productRoute);
-    const data = await res.json();
+    try {
+        const response = await fetch(productRoute);
+        const products = await response.json();
 
-    const container = document.getElementById('product-list');
-    container.innerHTML = '';
+        const container = document.getElementById('product-list');
+        container.innerHTML = '';
 
-    data.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-      <img src="${p.image_url}" alt="${p.product_name}" />
-      <div class="info">
-        <h4>${p.product_name}</h4>
-        <p>Rs. ${p.price}</p>
-      </div>
-    `;
-        container.appendChild(card);
-    });
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <img src="${product.image_url}" alt="${product.product_name}" 
+                     onerror="this.src='https://via.placeholder.com/300x200?text=Product'">
+                <div class="info">
+                    <h4>${product.product_name}</h4>
+                    <p>Rs. ${product.price}</p>
+                    <button class="btn buy-btn">Buy Product</button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error loading products:', error);
+    }
 }
 
+// Add new product
 document.getElementById('add-product').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('product_name').value;
+
+    const product_name = document.getElementById('product_name').value;
     const price = document.getElementById('price').value;
     const image_url = document.getElementById('image_url').value;
 
-    await fetch(productRoute, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            name,
-            price,
-            image_url,
-            user_id: user.id
-        })
-    });
+    try {
+        await fetch(productRoute, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                product_name,
+                price,
+                image_url,
+                created_by: user.id
+            })
+        });
 
-    e.target.reset();
-    loadProducts();
+        closeModal();
+        loadProducts();
+    } catch (error) {
+        console.error('Error adding product:', error);
+    }
 });
 
+// Load products when page loads
 loadProducts();
