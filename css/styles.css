@@ -196,6 +196,24 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   color: #667eea;
+  margin-bottom: 1rem;
+}
+
+/* Buy Button */
+.buy-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.buy-btn:hover {
+  background: #059669;
 }
 
 /* Modal */
@@ -287,6 +305,212 @@ body {
   color: white;
 }
 
+/* Payment Modal Styles */
+.payment-details {
+  padding: 2rem;
+}
+
+.product-summary {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.product-summary h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.product-summary .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.esewa-info {
+  margin-bottom: 2rem;
+}
+
+.esewa-info h4 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.mock-details {
+  background: #f0f9ff;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.mock-details p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.mock-credentials {
+  background: #fef3c7;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #f59e0b;
+}
+
+.mock-credentials h5 {
+  color: #92400e;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.mock-credentials p {
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  color: #78350f;
+}
+
+.payment-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #5a67d8;
+}
+
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+/* Loading Spinner */
+.loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Payment Success - Minimal Design */
+.success-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  padding: 20px;
+}
+
+.success-card {
+  background: white;
+  padding: 60px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+}
+
+.success-card h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.success-card p {
+  color: #6b7280;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.order-info {
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  text-align: left;
+  border: 1px solid #e5e7eb;
+}
+
+.order-info h4 {
+  color: #1f2937;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.order-info p {
+  color: #4b5563;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+  background: #2563eb;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero-content h1 {
@@ -314,5 +538,32 @@ body {
   
   .form-actions button {
     width: 100%;
+  }
+  
+  .payment-actions {
+    flex-direction: column;
+  }
+  
+  .payment-actions button {
+    width: 100%;
+  }
+
+  .success-card {
+    padding: 40px 24px;
+  }
+  
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+  
+  .success-card h1 {
+    font-size: 24px;
+  }
+  
+  .success-card p {
+    font-size: 15px;
   }
 }
